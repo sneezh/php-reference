@@ -1,8 +1,8 @@
 <?php
 
-use FulltextSearch\HashSearch;
+use App\References\FulltextSearch\HashSearch;
 
-include_once '../src/References/FulltextSearch/HashSearch.php';
+include_once '../vendor/autoload.php';
 
 // todo: implements tests for this algorithm
 var_dump((new HashSearch())->contains('123', 'ab123'));

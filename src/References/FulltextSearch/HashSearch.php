@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace FulltextSearch;
+namespace App\References\FulltextSearch;
 
 final class HashSearch
 {
@@ -13,11 +13,16 @@ final class HashSearch
      *
      * @return bool
      */
-    public function contains(string $needle, string $haystack): bool
+    public static function contains(string $needle, string $haystack): bool
     {
+        $haystackLength = mb_strlen($haystack);
+
+        if ($haystackLength === 0) {
+            return false;
+        }
+
         $needleLength = mb_strlen($needle);
         $needleHash = md5($needle);
-        $haystackLength = mb_strlen($haystack);
 
         for ($i = 0; $i < $haystackLength; $i++) {
             $currentHash = md5(mb_substr($haystack, $i, $needleLength));
