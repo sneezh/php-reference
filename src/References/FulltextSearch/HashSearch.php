@@ -13,7 +13,7 @@ final class HashSearch
      *
      * @return bool
      */
-    public function included(string $needle, string $haystack): bool
+    public function contains(string $needle, string $haystack): bool
     {
         $needleLength = mb_strlen($needle);
         $needleHash = md5($needle);
